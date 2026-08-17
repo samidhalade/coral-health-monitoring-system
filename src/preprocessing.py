@@ -4,16 +4,31 @@ import numpy as np
 
 def preprocess_image(image):
     """
-    Preprocess an uploaded coral image before model prediction.
+    Prepare an uploaded coral image for visualisation
+    and future model inference.
+
+    Returns an RGB image.
     """
 
     image = np.array(image)
 
-    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+    # RGB → BGR
+    image = cv2.cvtColor(
+        image,
+        cv2.COLOR_RGB2BGR
+    )
 
-    image = cv2.resize(image, (640, 640))
+    # Resize
+    image = cv2.resize(
+        image,
+        (640, 640)
+    )
 
-    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+    # Contrast enhancement
+    lab = cv2.cvtColor(
+        image,
+        cv2.COLOR_BGR2LAB
+    )
 
     l, a, b = cv2.split(lab)
 
@@ -24,11 +39,13 @@ def preprocess_image(image):
 
     l = clahe.apply(l)
 
-    enhanced = cv2.merge((l, a, b))
+    enhanced = cv2.merge(
+        (l, a, b)
+    )
 
     enhanced = cv2.cvtColor(
         enhanced,
-        cv2.COLOR_LAB2BGR
+        cv2.COLOR_LAB2RGB
     )
 
     return enhanced

@@ -1,7 +1,10 @@
+streamlit
 ultralytics
 opencv-python
-matplotlib
-pandas
-seaborn
-streamlit
 pillow
+pandas
+numpy
+matplotlib
+pyyaml
+torch
+torchvision
