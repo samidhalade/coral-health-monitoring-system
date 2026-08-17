@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['Bleached Coral', 'Dead Coral', 'Healthy Coral']
+
+roboflow:
+  workspace: maha-bil6y
+  project: marjan-detection
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/maha-bil6y/marjan-detection/dataset/3
